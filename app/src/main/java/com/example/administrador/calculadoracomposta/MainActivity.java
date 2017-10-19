@@ -12,12 +12,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
 
-    // ## apagar os TOASTS do ENTER
-    // REPLACE ALL
-    // ARRUMAR BUGS DA VIRGULA
 
-
-    // Declarando Variaveis
+    // Declarando Variaveis usando data binding
     Button bt_0, bt_1, bt_2, bt_3, bt_4, bt_5, bt_6, bt_7, bt_8, bt_9;
     Button bt_add, bt_subt, bt_division, bt_multi, bt_comma, bt_enter, bt_clear;
     TextView tv_Tela;
@@ -27,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     boolean num1conf, resetTela, num1comma, num2comma = false; // resetTela é para apagar a tela quando for digitado um numero após acabar uma operação
     Double num1, num2, resultado;
     String num2str = "";
-    String x = ""; //variavel que substitui o numero nos eventos de clique
+    String x = ""; //variavel utilizada como auxilio no metodo do ponto decimal(dot, comma)
 
 
     @Override
@@ -66,15 +62,15 @@ public class MainActivity extends AppCompatActivity {
         bt_enter = (Button) findViewById(R.id.bt_enter);
         bt_back = (ImageButton) findViewById(R.id.bt_back);
         bt_clear = (Button) findViewById(R.id.bt_clear);
+        
+        tv_Tela = (TextView) findViewById(R.id.tv_Tela);
+        tv_Tela.setText("0");
 
+        // Definindo eventos de click
         bt_add.setOnClickListener(escutabotao);
         bt_subt.setOnClickListener(escutabotao);
         bt_division.setOnClickListener(escutabotao);
         bt_multi.setOnClickListener(escutabotao);
-
-        tv_Tela = (TextView) findViewById(R.id.tv_Tela);
-
-        tv_Tela.setText("0");
 
         //
         //
